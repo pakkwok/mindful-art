@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Art 靜心繪畫 | MOCHI Academy</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mindful Art 靜心繪畫 | MOCHI Academy">
+    <meta property="og:description" content="—— 從慢速繪畫到自我關懷 ——">
+    <meta property="og:image" content="https://raw.githubusercontent.com/pakkwok/emails/refs/heads/main/Screenshot%202026-04-21%20060742.png">
+    <meta property="og:url" content="https://pakkwok.github.io/mochi-programs/mindful-art/">
+    <meta property="og:type" content="website">
+
+    <!-- Loading Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Font Configuration -->
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, 'PingFang TC', 'Microsoft JhengHei', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-[#FDFBF7] text-[#333333] leading-relaxed flex justify-center items-center min-h-screen p-5 sm:p-10 m-0 box-border">
+
+    <main class="w-full max-w-[700px] p-6 sm:p-10 bg-white rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.06)] text-center box-border">
+        
+        <h1 class="text-[#1B2A47] text-2xl sm:text-[28px] font-bold mb-2">Mindful Art 靜心繪畫</h1>
+        <div class="text-[#D97736] text-lg sm:text-[18px] font-bold mb-8">—— 從慢速繪畫到自我關懷 ——</div>
+
+        <img 
+            src="https://raw.githubusercontent.com/pakkwok/emails/refs/heads/main/Screenshot%202026-04-21%20060742.png" 
+            alt="Mindful Art Workshop Poster" 
+            class="w-full h-auto max-w-full rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.1)] mb-9 object-cover"
+        >
+
+        <div class="flex flex-col gap-4 items-center mb-10">
+            <!-- Registration Button -->
+            <a 
+                href="https://forms.gle/cYRj7od3DsEJZ74x6" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="bg-[#D97736] hover:bg-[#c2662d] text-white py-4 px-8 text-[18px] sm:text-[20px] font-bold rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(217,119,54,0.3)] hover:-translate-y-0.5 w-full sm:w-4/5 max-w-[300px] flex justify-center items-center"
+            >
+                👉 立即登記報名 (Register Here)
+            </a>
+            
+            <!-- Share Button -->
+            <button 
+                class="bg-transparent hover:bg-[#1B2A47] text-[#1B2A47] hover:text-white border-2 border-[#1B2A47] py-3 px-8 text-[16px] sm:text-[18px] font-bold rounded-full transition-all duration-300 w-full sm:w-4/5 max-w-[300px] flex justify-center items-center gap-2 group cursor-pointer"
+                onclick="copyShareLink()"
+            >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-colors">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                <span id="share-text">Share Event Link</span>
+            </button>
+        </div>
+
+        <div class="pt-8 border-t border-[#EAEAEA] flex flex-col items-center gap-6">
+            <a 
+                href="https://amazingmochi.ca" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="block text-[#1B2A47] text-[18px] font-bold decoration-transparent hover:underline transition-all"
+            >
+                amazingmochi.ca
+            </a>
+            <a 
+                href="https://sites.google.com/amazingmochi.ca/mochiemails/home" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="bg-[#1B2A47] hover:bg-[#111b2d] text-white py-3 px-8 text-[16px] font-bold rounded-full transition-colors inline-block"
+            >
+                Subscribe to MOCHi Emails
+            </a>
+        </div>
+    </main>
+
+    <script>
+        function copyShareLink() {
+            // Using document.execCommand('copy') as a safer fallback for cross-origin iFrames
+            const urlToCopy = window.location.href;
+            const tempInput = document.createElement("input");
+            tempInput.value = urlToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+            try {
+                document.execCommand("copy");
+                const shareText = document.getElementById("share-text");
+                const originalText = "Share Event Link"; // Storing explicitly in case of rapid clicks
+                
+                shareText.innerText = "✅ Link Copied!";
+                
+                // Revert back after 2 seconds
+                setTimeout(function() {
+                    shareText.innerText = originalText;
+                }, 2000);
+            } catch (err) {
+                console.error('Could not copy text: ', err);
+                alert("Failed to copy. Please manually copy the URL.");
+            }
+            
+            // Clean up the temporary input field
+            document.body.removeChild(tempInput);
+        }
+    </script>
+
+</body>
+</html>
